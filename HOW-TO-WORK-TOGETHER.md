@@ -73,22 +73,32 @@ This is the actual workflow. It's not complex. It's just different from how most
 ORIENT
 ├── Human shares: who they are, what they need, why it matters
 ├── LLM asks: clarifying questions about ambiguity, constraints, audience
-└── Both establish: what success looks like
+└── Both establish: what success looks like and which session type this is
 
-EXPLORE
+PLAN
 ├── LLM examines: the problem space, approaches, tradeoffs
 ├── Human reacts: "that's the right direction" / "no, the constraint is..."
-└── Both converge: on an approach
+└── Both converge: on a specific approach before any output is produced
 
 EXECUTE
-├── LLM produces: work in reviewable chunks
-├── Human verifies: output against reality, intent, quality bar
-└── Both iterate: direct feedback → refined output
+├── LLM produces: work in reviewable chunks, not all at once
+├── Human reviews: each chunk against intent before the next is produced
+└── Both catch: problems early rather than at the end
+
+VERIFY
+├── LLM checks: output against reality, not just internal consistency
+├── Human confirms: tests pass, behavior matches expectation, it actually works
+└── Neither trusts: a self-report of "done" — external verification only
+
+REFINE
+├── Human gives: direct feedback — "wrong because X" not a rephrased prompt
+├── LLM iterates: on the specific failure, not a full rewrite
+└── Both converge: toward the actual target
 
 COMPOUND
 ├── Human captures: what worked, what didn't, patterns to remember
-├── LLM adapts: to feedback within the session
-└── Both benefit: next interaction starts from a higher baseline
+├── LLM surfaces: lessons worth encoding before the session closes
+└── Both benefit: next session starts from a higher baseline
 ```
 
 The key difference from a standard prompt-response cycle: both parties are thinking throughout. The human isn't just waiting for output. The LLM isn't just generating text. There's a feedback loop that operates at every stage.

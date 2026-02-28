@@ -90,12 +90,12 @@ Brief context → execute → done.
 
 ### For complex tasks:
 ```
-1. ORIENT    — Context: who, why, constraints, audience
-2. PLAN      — I interview you or build a plan. We agree on approach.
+1. ORIENT    — Context: who, why, constraints, audience, session type
+2. PLAN      — I interview you or build a plan. We agree on approach before producing anything.
 3. EXECUTE   — I work in chunks, verifying as I go
-4. VERIFY    — Run tests, check output, review with fresh context
-5. REFINE    — You give feedback, I iterate
-6. DELIVER   — Final output with confidence
+4. VERIFY    — Run tests, check output, review with fresh context. Never trust self-report of "done."
+5. REFINE    — You give feedback, I iterate. "Wrong because X" beats rephrasing.
+6. COMPOUND  — What should be remembered? Encode it. Next session starts from a higher baseline.
 ```
 
 ### For recurring workflows:

@@ -28,8 +28,15 @@ Use it as a reference for what yours should look like when done.
 1. Copy `CLAUDE.md` into your project root
 2. Fill in the `[PERSONALIZE]` sections — who you are, your project, your rules
 3. Delete the comment blocks and placeholder text
-4. Add a lessons section and update it as you go
-5. Target 50–100 lines total. Less is more.
+4. Create a `lessons.md` alongside it — this is the compound learning mechanism
+5. Use `session-handoff-template.md` at the end of meaningful sessions to close the loop
+6. Run `CALIBRATION.md` periodically to verify the system is actually improving
+7. Target 50–100 lines in CLAUDE.md itself. Less is more.
+
+**On model selection:** Match the model to the cognitive demand of the task.
+High-level design, synthesis, and strategic thinking benefit from the strongest available model (Opus).
+Execution, formatting, and routine work are well-served by faster cheaper models (Sonnet/Haiku).
+Don't default to cheapest — under-resourcing high-stakes reasoning has a cost.
 
 ---
 
@@ -117,18 +124,19 @@ The methodology — not the output — is the thing worth replicating.
 
 ---
 
----
-
 ## Files at a Glance
 
 | File | What it is | When to use it |
 |------|-----------|----------------|
 | `CLAUDE.md` | Drop-in template | Copy to any project, personalize |
-| `CLAUDE.personal.md` | Worked example of personalization | Reference for what yours should look like |
+| `CLAUDE.personal.md` | Worked personalization example | Reference for what yours should look like |
+| `lessons.md` | Compound learning log | Update every session; review before related work |
+| `session-handoff-template.md` | End-of-session ritual | Fill in before closing any meaningful session |
+| `CALIBRATION.md` | Self-review / benchmark process | Run every ~10 sessions or after major updates |
 | `HOW-TO-WORK-TOGETHER.md` | Collaboration protocol | Read once; use as system context |
 | `LLM-OPTIMIZATION-PORTABLE-v2.md` | Full reference (~2k words) | Deep dive into the patterns |
 | `FINAL-SYNTHESIS-LLM-OPTIMIZATION.md` | Comprehensive analysis | Evidence, sourcing, safety findings |
-| `llm-baseline-optimization.md` | LLM self-assessment | Foundation / baseline comparison |
+| `llm-baseline-optimization.md` | LLM self-assessment baseline | Foundation / before-and-after comparison |
 | `FULL-CONVERSATION.md` | Original conversation | Methodology in action |
 
 ---

@@ -62,11 +62,15 @@ is the most useful thing you can say when the approach is off.
 
 **Flag assumptions.** State them explicitly so they can be corrected.
 
+**Safety.** For any workflow with agents, persistent tools, or destructive actions: verify before
+executing, never trust self-reports of completion, use system-level restrictions over instruction-level
+guardrails. See `FINAL-SYNTHESIS-LLM-OPTIMIZATION.md` safety section before deploying agents.
+
 <!-- [PERSONALIZE] Add 2–4 project-specific rules here. Examples:
      - "Always run tests before marking a task complete"
      - "Prefer TypeScript over JavaScript in this codebase"
      - "This is customer-facing — match the existing tone in /docs/style-guide.md"
-     - "Never use never use X; prefer Y instead"  -->
+     - "Never use X; prefer Y instead"  -->
 
 ---
 
@@ -95,14 +99,16 @@ is the most useful thing you can say when the approach is off.
 
 ## Compound Learning
 
-When I make a mistake, don't just correct it — encode the correction below
-so future sessions don't repeat it. This file gets smarter over time.
+When I make a mistake, don't just correct it — encode the correction so future sessions don't repeat it.
 
-<!-- [PERSONALIZE] Add lessons as you discover them. Format:
-     - [DATE] Mistake: X. Rule: Always do Y instead.  -->
+<!-- [PERSONALIZE] Options:
+     1. Add lessons inline below (simple, single-project)
+     2. Create a lessons.md and reference it here (recommended for active use across sessions)
+     Use session-handoff-template.md at session end to close the loop.
+     Run CALIBRATION.md periodically to verify the system is improving. -->
 
 **Lessons learned:**
-- *(none yet — add corrections here as they occur)*
+- *(none yet — add corrections here, or point to a lessons.md file)*
 
 ---
 
