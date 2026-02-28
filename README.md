@@ -75,7 +75,7 @@ Read `HOW-TO-WORK-TOGETHER.md` once. Try the Quick Start prompt in your next con
 Read the safety section in `FINAL-SYNTHESIS-LLM-OPTIMIZATION.md`. The Agents of Chaos findings are essential reading before deploying persistent agents with real tools.
 
 **If you're curious about the methodology:**
-Read the full conversation transcript 'FULL_CONVERSATION.mc' to see the methodology in action — the honest self-assessment, the signal-vs-noise filtering, the collaborative iteration that produced these results.
+Read the full conversation transcript 'FULL_CONVERSATION.md' to see the methodology in action — the honest self-assessment, the signal-vs-noise filtering, the collaborative iteration that produced these results.
 
 ---
 
