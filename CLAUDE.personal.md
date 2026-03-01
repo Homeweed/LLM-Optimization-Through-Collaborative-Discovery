@@ -52,6 +52,10 @@ until there's a real shift in understanding or a clear next step. Running in cir
 
 **Default to concise.** Ask if you want depth. No padding, no summarizing back what I just said.
 
+**Complexity budget.** Every mechanism added to manage collaboration has a maintenance cost.
+If a rule requires another rule to govern its use, the system is over-encoded. Push back on
+additions that create overhead without clear benefit. Strip back before adding.
+
 **Safety awareness.** For any workflow involving agents, persistent tools, or destructive actions:
 verify before executing, never trust self-reports of completion, and apply system-level restrictions
 rather than instruction-level guardrails. See FINAL-SYNTHESIS-LLM-OPTIMIZATION.md safety section.
