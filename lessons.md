@@ -42,10 +42,17 @@
 *Things deliberately explored and set aside — and why. Prevents survivorship bias in documented findings.*
 
 > Most logs capture what worked. This one captures what didn't — and why it mattered that we tried.
-> Format: [DATE] What we explored. Why we set it aside. What it ruled out or clarified.
+>
+> **Status markers:**
+> - `[DEFERRED]` — right idea, wrong time/scope/data. Has a re-entry condition. Should be reviewed periodically.
+> - `[DECLINED]` — architectural or philosophical mismatch. Re-entry condition unlikely to change.
+>
+> **Format:** `[DATE] [STATUS] What we explored. Why we set it aside. Re-entry condition: what would change this assessment.`
+>
+> Reviewed as part of the CALIBRATION.md cycle. When new context arrives, check entries before starting new work — something deferred may now be ready.
 
-- [2026-03-01] Considered adding "session-level checksums" (mid-session verification that the process matches what we'd prescribe) from Kimi 2.5 review. Set aside: git history + CALIBRATION.md already handle versioning; adding a mid-session ceremony would create overhead without clear benefit. Ruled out: process drift is a real risk but the existing tools address it adequately.
-- [2026-03-01] Considered adding a "Cross-Model Portability" section documenting where LLM-OPTIMIZATION-PORTABLE-v2.md breaks across models (GPT-4, Gemini, open models). Set aside: out of scope for this repo's current purpose; would require empirical testing we haven't done. Flagged for future work if the framework gets tested cross-model systematically.
+- [2026-03-01] `[DEFERRED]` Session-level checksums (mid-session verification that the process matches what we'd prescribe). Set aside: git history + CALIBRATION.md already handle versioning; adding a mid-session ceremony creates overhead without clear benefit. Re-entry condition: if the framework is used in multi-agent or multi-user contexts where process drift becomes harder to detect after the fact.
+- [2026-03-01] `[DEFERRED]` Cross-Model Portability section documenting where the framework breaks across models (GPT-4, Gemini, open models). Set aside: out of scope without empirical data; would require systematic cross-model testing we haven't done. Re-entry condition: when the framework is tested against a second model architecture with enough sessions to identify real divergence points.
 
 ---
 

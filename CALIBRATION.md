@@ -19,6 +19,10 @@
 - When output quality feels like it has drifted (better or worse)
 - Minimum: once per month if actively using the system
 
+Also review the **Abandonment Log** in lessons.md during each calibration pass.
+Ask: have conditions changed for any `[DEFERRED]` entries? New context, new scope, new data?
+A deferred idea whose re-entry condition has been met should move from the log to active consideration — not get silently rediscovered from scratch.
+
 ---
 
 ## The Calibration Prompts
