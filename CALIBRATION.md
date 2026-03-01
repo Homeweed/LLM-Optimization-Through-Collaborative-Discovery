@@ -83,6 +83,57 @@ When comparing outputs, look for these specific signals:
 
 ---
 
+## Model Constellation Reviews
+
+Single-model calibration catches drift over time. Multi-model review catches blind spots in the current version.
+
+**What it is:** Run a different LLM (different architecture, training, or company) against your work.
+Ask it to identify tensions, gaps, or additions. Then bring that output to your primary LLM and ask:
+> "Identify where this reflects genuine alternative perspective versus predictable pattern completion,
+> and whether incorporating it strengthens or complicates the framework."
+
+The *variance* between model outputs is signal about epistemic uncertainty. Disagreement is informative.
+Agreement across architecturally distinct models is a stronger confidence signal than agreement within one.
+
+**When to run one:**
+- When the framework feels like it's converging too neatly (low variation = low discovery)
+- Before a major version update
+- When you suspect a blind spot but can't locate it
+
+**How to document it:**
+
+| Field | What to record |
+|-------|---------------|
+| Date | When the review ran |
+| External model used | Which model, which interface |
+| Genuine contributions | Points that added something not already in the framework |
+| Pattern completion | Points that reflected our own work back at us |
+| What was incorporated | Specific changes made |
+| What was set aside | What was considered and why it was declined (add to Abandonment Log) |
+
+---
+
+### [2026-03-01] — First Model Constellation Review
+
+**External model:** Kimi 2.5 (via Novita interface)
+**Prompt:** Reviewed the repository as-is and offered contributions for the Opus session
+
+**Genuine contributions (4 of ~10 points):**
+1. Abandonment Log — captures what was explored and discarded; prevents survivorship bias
+2. Sanctioned Inefficiency — the framework was over-optimized for output; discovery requires protected exploration
+3. Uncertainty Quantification Protocol — concrete verbal marker table operationalizing what we described abstractly
+4. Model Constellation as documented practice — using multi-model review deliberately and recording variance as findings
+
+**Pattern completion (not incorporated):**
+- Opening validation of our own findings (people-pleasing tendency, ironic given later self-awareness)
+- 30% degradation stat challenge (valid but obvious methodological critique, no new ground)
+- Cross-model portability section (out of scope without empirical data; added to Abandonment Log)
+- Session-level checksums / process drift (covered by existing tooling; added to Abandonment Log)
+
+**Result:** 4 real additions incorporated. The exercise worked as designed. The signal-to-noise ratio (40%) is consistent with the framework's own finding that ~25% of community LLM content is signal.
+
+---
+
 ## Calibration Log
 
 ### [2026-02-28] — Version 1 Baseline

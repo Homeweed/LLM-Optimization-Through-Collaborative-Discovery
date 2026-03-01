@@ -127,6 +127,27 @@ Human takes LLM output at face value because it sounds confident.
 Human keeps going in a long conversation even though the LLM is clearly degrading.
 *Fix:* Start a new session. Bring the key context forward. A fresh context with good input beats a stale context with full history.
 
+**The efficiency trap**
+Human optimizes every session for output — treating exploration as wasted time, pressuring toward answers before the problem space is understood.
+*Fix:* Protect deliberate exploration time. Some of the most useful sessions produce no deliverable — they clarify what the deliverable should actually be. "Sanctioned inefficiency" (space for wrong turns that yield structural insight) is not a bug in the process. It's how discovery works. The EXPLORING session type exists for this reason; use it without apology.
+
+---
+
+## Signaling Uncertainty — A Practical Tool
+
+Abstract uncertainty flagging ("I'm not sure") is better than false confidence, but it isn't enough.
+Use consistent verbal markers so both parties know what weight to put on any given claim.
+
+| Confidence level | Verbal marker | What it means | Action |
+|-----------------|---------------|---------------|--------|
+| **Established** | "We know that..." | Supported by evidence, cited source | Note scope conditions |
+| **Likely** | "The evidence suggests..." | Well-reasoned, key dependencies exist | Flag what could shift the conclusion |
+| **Tentative** | "One plausible reading..." | Reasonable but competing interpretations exist | Offer 2–3 alternatives |
+| **Speculative** | "This might connect to..." | Heuristic, not load-bearing | Keep off the decision-critical path |
+
+For LLMs: use these markers consistently, not just when asked. Calibrated uncertainty is more useful than performed confidence.
+For humans: when the LLM doesn't use a marker, ask: "How confident are you in that? What would change your answer?"
+
 ---
 
 ## What This Looks Like in Practice
