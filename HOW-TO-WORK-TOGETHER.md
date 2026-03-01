@@ -73,22 +73,32 @@ This is the actual workflow. It's not complex. It's just different from how most
 ORIENT
 ├── Human shares: who they are, what they need, why it matters
 ├── LLM asks: clarifying questions about ambiguity, constraints, audience
-└── Both establish: what success looks like
+└── Both establish: what success looks like and which session type this is
 
-EXPLORE
+PLAN
 ├── LLM examines: the problem space, approaches, tradeoffs
 ├── Human reacts: "that's the right direction" / "no, the constraint is..."
-└── Both converge: on an approach
+└── Both converge: on a specific approach before any output is produced
 
 EXECUTE
-├── LLM produces: work in reviewable chunks
-├── Human verifies: output against reality, intent, quality bar
-└── Both iterate: direct feedback → refined output
+├── LLM produces: work in reviewable chunks, not all at once
+├── Human reviews: each chunk against intent before the next is produced
+└── Both catch: problems early rather than at the end
+
+VERIFY
+├── LLM checks: output against reality, not just internal consistency
+├── Human confirms: tests pass, behavior matches expectation, it actually works
+└── Neither trusts: a self-report of "done" — external verification only
+
+REFINE
+├── Human gives: direct feedback — "wrong because X" not a rephrased prompt
+├── LLM iterates: on the specific failure, not a full rewrite
+└── Both converge: toward the actual target
 
 COMPOUND
 ├── Human captures: what worked, what didn't, patterns to remember
-├── LLM adapts: to feedback within the session
-└── Both benefit: next interaction starts from a higher baseline
+├── LLM surfaces: lessons worth encoding before the session closes
+└── Both benefit: next session starts from a higher baseline
 ```
 
 The key difference from a standard prompt-response cycle: both parties are thinking throughout. The human isn't just waiting for output. The LLM isn't just generating text. There's a feedback loop that operates at every stage.
@@ -116,6 +126,31 @@ Human takes LLM output at face value because it sounds confident.
 **The fresh-start avoidance**
 Human keeps going in a long conversation even though the LLM is clearly degrading.
 *Fix:* Start a new session. Bring the key context forward. A fresh context with good input beats a stale context with full history.
+
+**The efficiency trap**
+Human optimizes every session for output — treating exploration as wasted time, pressuring toward answers before the problem space is understood.
+*Fix:* Protect deliberate exploration time. Some of the most useful sessions produce no deliverable — they clarify what the deliverable should actually be. "Sanctioned inefficiency" (space for wrong turns that yield structural insight) is not a bug in the process. It's how discovery works. The EXPLORING session type exists for this reason; use it without apology.
+
+**The overhead trap**
+The collaboration framework itself becomes a maintenance burden — more time managing rules, logs, and processes than actually doing work. New mechanisms get added to address problems with old mechanisms.
+*Fix:* Every rule has a cost. If a mechanism requires another mechanism to govern its use, that's a signal the system is over-encoded. Strip back aggressively before adding. A lean system that gets used consistently beats a complete system that gets avoided.
+
+---
+
+## Signaling Uncertainty — A Practical Tool
+
+Abstract uncertainty flagging ("I'm not sure") is better than false confidence, but it isn't enough.
+Use consistent verbal markers so both parties know what weight to put on any given claim.
+
+| Confidence level | Verbal marker | What it means | Action |
+|-----------------|---------------|---------------|--------|
+| **Established** | "We know that..." | Supported by evidence, cited source | Note scope conditions |
+| **Likely** | "The evidence suggests..." | Well-reasoned, key dependencies exist | Flag what could shift the conclusion |
+| **Tentative** | "One plausible reading..." | Reasonable but competing interpretations exist | Offer 2–3 alternatives |
+| **Speculative** | "This might connect to..." | Heuristic, not load-bearing | Keep off the decision-critical path |
+
+For LLMs: use these markers consistently, not just when asked. Calibrated uncertainty is more useful than performed confidence.
+For humans: when the LLM doesn't use a marker, ask: "How confident are you in that? What would change your answer?"
 
 ---
 
