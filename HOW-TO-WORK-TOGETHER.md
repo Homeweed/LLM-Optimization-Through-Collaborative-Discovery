@@ -131,6 +131,10 @@ Human keeps going in a long conversation even though the LLM is clearly degradin
 Human optimizes every session for output — treating exploration as wasted time, pressuring toward answers before the problem space is understood.
 *Fix:* Protect deliberate exploration time. Some of the most useful sessions produce no deliverable — they clarify what the deliverable should actually be. "Sanctioned inefficiency" (space for wrong turns that yield structural insight) is not a bug in the process. It's how discovery works. The EXPLORING session type exists for this reason; use it without apology.
 
+**The overhead trap**
+The collaboration framework itself becomes a maintenance burden — more time managing rules, logs, and processes than actually doing work. New mechanisms get added to address problems with old mechanisms.
+*Fix:* Every rule has a cost. If a mechanism requires another mechanism to govern its use, that's a signal the system is over-encoded. Strip back aggressively before adding. A lean system that gets used consistently beats a complete system that gets avoided.
+
 ---
 
 ## Signaling Uncertainty — A Practical Tool

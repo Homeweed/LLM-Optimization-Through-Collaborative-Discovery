@@ -44,8 +44,12 @@
 > Most logs capture what worked. This one captures what didn't — and why it mattered that we tried.
 >
 > **Status markers:**
-> - `[DEFERRED]` — right idea, wrong time/scope/data. Has a re-entry condition. Should be reviewed periodically.
-> - `[DECLINED]` — architectural or philosophical mismatch. Re-entry condition unlikely to change.
+> - `[DEFERRED]` — the conditions that led to rejection could realistically change. Requires a *specific* re-entry condition.
+> - `[DECLINED]` — the reasoning holds regardless of how conditions change. No plausible re-entry condition exists.
+>
+> **Friction test before marking DEFERRED:** Can you write a re-entry condition that isn't just "when things change" or "if context shifts"? If not, it's a DECLINED — or a decision you haven't actually made yet (which belongs in PLAN, not here).
+>
+> **Size cap:** Keep under ~8 entries. If the log grows beyond that, consolidate or promote entries before adding. A log nobody reads is worse than no log.
 >
 > **Format:** `[DATE] [STATUS] What we explored. Why we set it aside. Re-entry condition: what would change this assessment.`
 >
@@ -71,6 +75,7 @@
 - [2026-02-28] "Done well" is goal-relative, not universal. Completion looks different for SHIPPING vs. DECIDING vs. UNDERSTANDING. Rule: Establish what success looks like at session start before any output is produced.
 - [2026-02-28] Safety guidance in the framework was buried in the analysis docs and never made it into the actionable files. Someone using only the templates gets zero safety guidance. Rule: Any CLAUDE.md template should include at minimum one explicit safety reference, especially for agent or tool-use workflows.
 - [2026-03-01] Model Constellation (using a different model to review work, then evaluating the delta) was used for the first time in practice: Kimi 2.5 reviewed the framework and contributed 4 genuine additions out of ~10 points. The exercise worked — external model review surfaces blind spots that self-review misses. Rule: Treat multi-model review as a legitimate validation technique, not just a curiosity. Document it in CALIBRATION.md as a repeatable process.
+- [2026-03-01] Framework complexity is subject to diminishing returns. Every mechanism added to manage the collaboration has a maintenance cost. When a new rule requires another rule to govern its use, the system is over-encoded. Rule: Err toward removal over accumulation. A lean system used consistently beats a complete system avoided. Strip back before adding.
 
 ---
 
