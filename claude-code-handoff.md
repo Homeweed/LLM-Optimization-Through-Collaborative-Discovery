@@ -329,7 +329,8 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
 ## Business Contexts
 
-**Grandstar Services** — Josiah's field technician work and business consulting operation. Currently subcontracting through Techlink Services for McDonald's media player swap installs (ODM & IDMB), transitioning locations from Stratacache to Coates. ~20 Eastern WA/OR sites, April-May 2026.
+**Grandstar Services** — Josiah's field technician work and business consulting operation. Subcontracting through Techlink Services for McDonald's media player swap installs (ODM & IDMB), transitioning from Stratacache to Coates. ~20 Eastern WA/OR sites, April-May 2026. Josiah managing remotely — Keith acting as onsite lead.
+**NCR Atleos** — regular route service calls, 8am–5pm, Omak/Wenatchee/Yakima region. Work assigned day-to-day by SP.
 **Lowkey Meadery** — partner/consultant to Keith's meadery, Wenatchee area (recently relocated to 1,894 sq ft facility)
 **Fermented Dreams Brewing Project** — Josiah's own brewing operation
 **Carters Cannabis** — retail store Josiah helps with
@@ -342,7 +343,7 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 - Josiah works across domains — don't assume a fixed mode
 - Direct feedback preferred over diplomatic hedging
 - Strong mechanical aptitude — comfortable with DIY electrical, plumbing, equipment work
-- McDonald's install schedule (April-May, Eastern WA/OR) means variable availability — don't assume workstation access during route blocks
+- NCR Atleos route runs regularly (Omak/Wenatchee/Yakima); McDonald's install schedule (April-May) means reduced availability — Josiah is remote managing, not onsite
 - Deep TTB compliance knowledge for meadery/brewing regulatory work
 ```
 
