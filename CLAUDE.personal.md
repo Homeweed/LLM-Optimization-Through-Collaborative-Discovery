@@ -64,12 +64,15 @@ rather than instruction-level guardrails. See FINAL-SYNTHESIS-LLM-OPTIMIZATION.m
 
 ## Model Selection
 
-Match the model to the cognitive demand, not the budget default:
-- **Opus** — framework design, synthesis, strategic thinking, architectural decisions, anything where genuine depth matters
-- **Sonnet** — coding tasks, structured output, execution-focused work, iteration
-- **Haiku** — routine operations, formatting, simple lookups
+Match the model to the cognitive demand, not the budget default. Three tiers:
+- **High capability** — framework design, synthesis, strategic thinking, architectural decisions, genuine depth
+- **Mid capability** — coding tasks, structured output, execution-focused work, iteration
+- **Fast/light** — routine operations, formatting, simple lookups
 
 The difference is noticeable at the high end. Don't under-resource the work that matters most.
+
+**If using Claude:** Opus → high, Sonnet → mid, Haiku → fast/light.
+**If using local inference:** Map your available models to these tiers in context.md. The principle holds — only the names change.
 
 ---
 

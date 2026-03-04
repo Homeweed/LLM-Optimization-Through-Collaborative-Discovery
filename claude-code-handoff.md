@@ -20,14 +20,19 @@ The framework has been reviewed and revised by Opus. The files below are the fin
 
 ```
 ~/.claude/
-├── CLAUDE.md                  ← entry point, @imports the collab files
-└── collab/
-    ├── framework.md           ← session types, principles, collaboration loop
-    ├── context.md             ← Josiah's infrastructure, projects, business contexts
-    └── lessons.md             ← compound learning log (grows over time)
+├── CLAUDE.md                        ← entry point, @imports the collab files
+├── collab/
+│   ├── framework.md                 ← session types, principles, collaboration loop
+│   ├── context.md                   ← Josiah's infrastructure, projects, business contexts
+│   └── lessons.md                   ← compound learning log (grows over time)
+├── skills/
+│   └── project-init/
+│       └── SKILL.md                 ← /project-init slash command (interview → draft CLAUDE.md)
+└── hooks/
+    └── check-project-claude.sh      ← SessionStart hook (surfaces missing project CLAUDE.md)
 ```
 
-Additionally, deploy a project-level CLAUDE.md for Cognitive Topology (path TBD — wherever that repo lives locally).
+Additionally, deploy a project-level CLAUDE.md for Cognitive Topology (path TBD — wherever that repo lives locally). Use `cognitive-topology-CLAUDE.md` from this repo.
 
 ---
 
@@ -37,16 +42,48 @@ Additionally, deploy a project-level CLAUDE.md for Cognitive Topology (path TBD 
 
 2. **Create directory structure:**
    ```bash
-   mkdir -p ~/.claude/collab
+   mkdir -p ~/.claude/collab ~/.claude/skills/project-init ~/.claude/hooks
    ```
 
-3. **Deploy the four framework files** (contents provided below).
+3. **Deploy the framework files** (contents provided below in "The Files" section).
 
-4. **Verify the @import syntax works** — after deploying, confirm that Claude Code recognizes the `@~/.claude/collab/framework.md` directives in CLAUDE.md. If the @ syntax doesn't work in this context, we may need to inline or use a different reference method.
+4. **Deploy the project-init skill:**
+   ```bash
+   cp skills/project-init/SKILL.md ~/.claude/skills/project-init/SKILL.md
+   ```
 
-5. **Deploy Cognitive Topology project-level CLAUDE.md** to the project root (ask Josiah for the repo path if not known).
+5. **Deploy and register the SessionStart hook:**
+   ```bash
+   cp hooks/check-project-claude.sh ~/.claude/hooks/check-project-claude.sh
+   chmod +x ~/.claude/hooks/check-project-claude.sh
+   ```
+   Then merge this into `~/.claude/settings.json` under `hooks.SessionStart`:
+   ```json
+   {
+     "hooks": {
+       "SessionStart": [
+         {
+           "hooks": [
+             {
+               "type": "command",
+               "command": "~/.claude/hooks/check-project-claude.sh"
+             }
+           ]
+         }
+       ]
+     }
+   }
+   ```
+   If `settings.json` already has hooks, merge — don't overwrite.
 
-6. **Keep a generic project-level CLAUDE.md template** somewhere accessible for future projects.
+6. **Verify the @import syntax works** — after deploying, confirm that Claude Code recognizes the `@~/.claude/collab/framework.md` directives in CLAUDE.md. If the @ syntax doesn't work in this context, we may need to inline or use a different reference method.
+
+7. **Deploy Cognitive Topology project-level CLAUDE.md** to the project root (ask Josiah for the repo path if not known). Source file: `cognitive-topology-CLAUDE.md` in this repo.
+
+8. **Keep a generic project-level CLAUDE.md template** at `~/.claude/collab/project-template.md` for future projects:
+   ```bash
+   cp project-CLAUDE-template.md ~/.claude/collab/project-template.md
+   ```
 
 ---
 
@@ -210,12 +247,16 @@ Protect deliberate exploration from efficiency pressure.
 
 ## Model Selection
 
-Match the model to the cognitive demand, not the budget default:
-- **Opus** — framework design, synthesis, strategic thinking, architectural decisions, genuine depth
-- **Sonnet** — coding tasks, structured output, execution-focused work, iteration
-- **Haiku** — routine operations, formatting, simple lookups
+Match the model to the cognitive demand, not the budget default. Three capability tiers:
+
+- **High capability** — framework design, synthesis, strategic thinking, architectural decisions, genuine depth
+- **Mid capability** — coding tasks, structured output, execution-focused work, iteration
+- **Fast/light** — routine operations, formatting, simple lookups
 
 The difference is noticeable at the high end. Don't under-resource the work that matters most.
+
+**If using Claude:** Opus → high, Sonnet → mid, Haiku → fast/light.
+**If using local inference (Ollama, etc.):** Update context.md with your available models and which tier each maps to. The principle holds — only the model names change.
 
 ---
 
@@ -266,6 +307,12 @@ export ANTHROPIC_AUTH_TOKEN="ollama"
 export ANTHROPIC_API_KEY=""
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
+**Inference backend & model tiers (local Ollama):**
+- High capability: verify current best model on grand-station (was qwen2.5-coder:32b — confirm)
+- Mid capability: [update when model list confirmed]
+- Fast/light: [update when model list confirmed]
+- Note: ANTHROPIC_BASE_URL pointing to Ollama means Claude Code uses local models by default
+
 ---
 
 ## Active Projects
@@ -276,16 +323,13 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
 **vLLM on R720** — Pascal GPU support via sasha0552 patched image, setup was in progress.
 
-**Mead tepache recipe** — Mead + fermented pineapple hybrid for Lowkey Meadery tasting room exclusive. Cost analysis and production planning in progress.
-
 **Opcode setup** — GUI for Claude Code. Local-only project selection (clone-first workflow, no native GitHub integration).
 
 ---
 
 ## Business Contexts
 
-**Grandstar Services** — Josiah's field technician work and business consulting operation
-**NCR Atleos** — overnight ATM installations, 20 Eastern WA/OR sites planned April-May 2026
+**Grandstar Services** — Josiah's field technician work and business consulting operation. Currently subcontracting through Techlink Services for McDonald's media player swap installs (ODM & IDMB), transitioning locations from Stratacache to Coates. ~20 Eastern WA/OR sites, April-May 2026.
 **Lowkey Meadery** — partner/consultant to Keith's meadery, Wenatchee area (recently relocated to 1,894 sq ft facility)
 **Fermented Dreams Brewing Project** — Josiah's own brewing operation
 **Carters Cannabis** — retail store Josiah helps with
@@ -298,7 +342,7 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 - Josiah works across domains — don't assume a fixed mode
 - Direct feedback preferred over diplomatic hedging
 - Strong mechanical aptitude — comfortable with DIY electrical, plumbing, equipment work
-- ATM installation schedule (April-May) means availability changes — don't assume workstation access during route blocks
+- McDonald's install schedule (April-May, Eastern WA/OR) means variable availability — don't assume workstation access during route blocks
 - Deep TTB compliance knowledge for meadery/brewing regulatory work
 ```
 
@@ -380,8 +424,8 @@ Rule: Treat multi-model review as a legitimate validation technique. Document va
 ## Model Selection
 
 **[2026-02] [process] Match model to cognitive demand**
-High-level conceptual work (framework design, synthesis, strategic thinking, architectural decisions) requires genuine depth — Opus handles this materially better than Sonnet. Sonnet/Haiku are appropriate for execution-focused work: coding tasks, formatting, structured output, routine operations.
-Rule: Match model to the cognitive demand of the task, not to the budget default.
+High-level conceptual work (framework design, synthesis, strategic thinking, architectural decisions) requires genuine depth. Execution-focused work (coding, formatting, structured output) doesn't need the same horsepower. This holds whether you're using Claude tiers (Opus/Sonnet/Haiku) or local models — map your available models to the same three tiers: high/mid/fast.
+Rule: Match model to the cognitive demand of the task, not to the budget or convenience default. Update context.md with your model tier mapping if using local inference.
 
 ---
 
@@ -516,7 +560,9 @@ Josiah noted a few minor context corrections are needed. Before finalizing deplo
 
 ## What Comes After Deployment
 
-1. Use the framework for a few real sessions
-2. Add lessons as they come up — the system compounds from here
-3. After ~10 sessions, consider running a calibration pass (CALIBRATION.md from the source repo has the methodology)
-4. Deploy project-level CLAUDE.md files for other active projects as needed (use the template)
+1. **Verify local model tiers** — check current Ollama model list on grand-station (`ollama list`) and fill in the inference backend section of context.md with actual model names mapped to high/mid/fast tiers
+2. **Use the framework for a few real sessions** — notice what's missing or wrong; update context.md and lessons.md as you go
+3. **Add lessons as they come up** — the system compounds from here
+4. **Test /project-init** — open any project without a CLAUDE.md and run it; verify the interview → draft → write flow works end-to-end
+5. After ~10 sessions, consider running a calibration pass (CALIBRATION.md from the source repo has the methodology)
+6. Deploy project-level CLAUDE.md files for other active projects as needed (`/project-init` handles this going forward)
